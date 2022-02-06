@@ -15,7 +15,7 @@ Descargar docker compose [docker-compose.yml](https://github.com/JuanRodenas/Por
 Edite el volumen y cambiar la ruta deseada:
 ~~~
   volumes:
-    - /home/root/portainer/config:/config
+    - /patch/to/data/portainer/config:/config
 ~~~
 
 ### Lanzar el contenedor
