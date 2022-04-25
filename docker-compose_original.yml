@@ -9,7 +9,7 @@ services:
     restart: always 
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /patch/to/data/docker/portainer:/data:rw
+      - /patch/to/data/docker/portainer:/data
     security_opt:
       - no-new-privileges:true
     ports:
