@@ -1,0 +1,16 @@
+version: "3.3" 
+  
+services: 
+  portainer: 
+    image: portainer/portainer-ce 
+    container_name: portainer 
+    command: -H unix:///var/run/docker.sock 
+    network_mode: "host"
+    restart: always 
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /patch/to/data/docker/portainer:/data:rw
+  
+volumes: 
+  portainer: 
+    driver: local
