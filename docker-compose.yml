@@ -13,8 +13,8 @@ services:
     security_opt:
       - no-new-privileges
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=PUID
+      - PGID=PGID
       - TZ=Europe/Madrid
       - LOG_LEVEL=info
     volumes: 
@@ -29,9 +29,6 @@ services:
       - "traefik.http.routers.portainer.tls.certresolver=lets-encrypt" 
       - "traefik.http.services.portainer.loadbalancer.server.port=9443" 
       - "traefik.http.middlewares.portainer.headers.sslredirect=true"
-      - "traefik.http.routers.portainer.middlewares=secured"
-      - "traefik.http.middlewares.secured.chain.middlewares=portainer,lista-blanca"
-      - "traefik.http.middlewares.lista-blanca.ipwhitelist.sourcerange=192.168.1.0/24, 10.13.13.1/24"
 
 volumes: 
   portainer: 
