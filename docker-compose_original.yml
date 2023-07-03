@@ -8,6 +8,7 @@ services:
     network_mode: "host"
     restart: always
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - </patch/to/data>/portainer/data:/data
     security_opt:
@@ -15,6 +16,7 @@ services:
     ports:
       - 9000:9000
       - 8000:8000
+      - 9443:9443
     environment:
       - PUID=0
       - PGID=0
