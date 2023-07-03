@@ -2,10 +2,10 @@ version: "3.3"
   
 services: 
   portainer: 
-    image: portainer/portainer-ce 
-    container_name: portainer 
-    command: -H unix:///var/run/docker.sock 
-    networks: 
+    image: portainer/portainer-ce
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    networks:
       - red
     restart: always
     env_file:
@@ -17,9 +17,10 @@ services:
       - PGID=PGID
       - TZ=Europe/Madrid
       - LOG_LEVEL=info
-    volumes: 
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /patch/to/data/docker/portainer:/data:rw 
+      - </patch/to/data>/portainer/data:/data:rw 
     labels: 
       # portainer 
       - "traefik.enable=true" 
@@ -33,7 +34,8 @@ services:
 volumes: 
   portainer: 
     driver: local 
-     
+    name: "portainer"
+
 networks: 
   red: 
     external: true 
